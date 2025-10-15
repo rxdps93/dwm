@@ -2,3 +2,5 @@ dwm
 *.o
 *.tar.gz
 *.diff
+*.rej
+*.orig
