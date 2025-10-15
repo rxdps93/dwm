@@ -3,6 +3,7 @@ Patches Applied
 > restartsig
 > vanitygaps
 > bulkill
+> scratchpads
 
 dwm - dynamic window manager
 ============================

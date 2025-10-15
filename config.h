@@ -23,6 +23,18 @@ static const char *colors[][3]      = {
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
 
+typedef struct {
+	const char *name;
+	const void *cmd;
+} Sp;
+const char *spcmd1[] = { "st", "-n", "spterm", "-g", "120x34", NULL };
+const char *spcmd2[] = { "st", "-n", "spcalc", "-f", "monospace:size=16", "-g", "50x20", "-e", "bc", "-lq", NULL };
+static Sp scratchpads[] = {
+	/* name		cmd */
+	{"spterm",	spcmd1},
+	{"spcalc",	spcmd2},
+};
+
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
@@ -34,6 +46,8 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "st-256color",	      "spterm",   NULL,       SPTAG(0),     1,	         -1 },
+	{ "st-256color",       "spcalc",   NULL,       SPTAG(1),     1,           -1 },
 };
 
 /* layout(s) */
@@ -88,6 +102,10 @@ static const Key keys[] = {
 	{ MODKEY,	                XK_q,      killclient,     {0} }, 	// close current window
 	{ MODKEY|ControlMask,		XK_q,	   killclient,	   {.ui = 1} }, // close all except current
 	{ MODKEY|ShiftMask|ControlMask, XK_q,	   killclient,	   {.ui = 2} }, // close all
+
+	// SCRATCHPAD
+	{ MODKEY|ShiftMask,		XK_Return, togglescratch,  {.ui = 0} }, // sp terminal
+	{ MODKEY,			XK_apostrophe, togglescratch, {.ui = 1} }, // sp calculator
 
 	// GAP CONTROLS
 	{ MODKEY|Mod1Mask,		XK_minus,  incrgaps,	   {.i = -2} },  /* decrease all gaps */
