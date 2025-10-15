@@ -3,6 +3,11 @@
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int gappih    = 10;	/* horiz inner gap between windows */
+static const unsigned int gappiv    = 10;	/* vert inner gap between windows */
+static const unsigned int gappoh    = 10;	/* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 10;	/* vert outer gap between windows and screen edge */
+static const int smartgaps	    = 0;	/* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=10" };
@@ -81,6 +86,24 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_space,  zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,	                XK_q,      killclient,     {0} }, // close current window
+
+	// GAP CONTROLS
+	{ MODKEY|Mod1Mask,		XK_minus,  incrgaps,	   {.i = -2} },  /* decrease all gaps */
+	{ MODKEY|Mod1Mask,		XK_equal,  incrgaps,	   {.i = +2} },  /* increase all gaps */
+	{ MODKEY,			XK_g,	   togglegaps,	   {0} },	 /* toggle gaps */
+	{ MODKEY|ShiftMask,		XK_g,	   defaultgaps,	   {0} },	 /* return gaps to default settings */
+	{ MODKEY|Mod1Mask,		XK_i,	   incrigaps,	   {.i = +1 } }, /* inner inc */
+	{ MODKEY|Mod1Mask|ShiftMask,    XK_i,	   incrigaps,	   {.i = -1 } }, /* inner dec */
+	{ MODKEY|Mod1Mask,		XK_o,	   incrogaps,	   {.i = +1 } }, /* outer inc */
+	{ MODKEY|Mod1Mask|ShiftMask,	XK_o,	   incrogaps,	   {.i = -1 } }, /* outer dec */
+	{ MODKEY|Mod1Mask,		XK_1,	   incrihgaps,	   {.i = +1 } }, /* inner horiz inc */
+	{ MODKEY|Mod1Mask|ShiftMask,	XK_1,	   incrihgaps,	   {.i = -1 } }, /* inner horiz dec */
+	{ MODKEY|Mod1Mask,		XK_2,	   incrivgaps,	   {.i = +1 } }, /* inner vert inc */
+	{ MODKEY|Mod1Mask|ShiftMask,	XK_2,	   incrivgaps,	   {.i = -1 } }, /* inner vert dec */
+	{ MODKEY|Mod1Mask,		XK_3,	   incrohgaps,	   {.i = +1 } }, /* outer horiz inc */
+	{ MODKEY|Mod1Mask|ShiftMask,	XK_3,	   incrohgaps,	   {.i = -1 } }, /* outer horiz dec */
+	{ MODKEY|Mod1Mask,		XK_4,	   incrovgaps,	   {.i = +1 } }, /* outer vert inc */
+	{ MODKEY|Mod1Mask|ShiftMask,	XK_4,	   incrovgaps,	   {.i = -1 } }, /* outer vert dec */
 
 	// CUSTOM SCRIPTS
 	{ MODKEY,			XK_BackSpace, spawn,	   {.v = (const char *[]) { "sysop", NULL} } }, // system control options

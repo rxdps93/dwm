@@ -1,6 +1,7 @@
 Patches Applied
 ===============
 > restartsig
+> vanitygaps
 
 dwm - dynamic window manager
 ============================
