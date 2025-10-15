@@ -2,6 +2,7 @@ Patches Applied
 ===============
 > restartsig
 > vanitygaps
+> bulkill
 
 dwm - dynamic window manager
 ============================

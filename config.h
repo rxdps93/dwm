@@ -85,7 +85,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_space,  zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY,	                XK_q,      killclient,     {0} }, // close current window
+	{ MODKEY,	                XK_q,      killclient,     {0} }, 	// close current window
+	{ MODKEY|ControlMask,		XK_q,	   killclient,	   {.ui = 1} }, // close all except current
+	{ MODKEY|ShiftMask|ControlMask, XK_q,	   killclient,	   {.ui = 2} }, // close all
 
 	// GAP CONTROLS
 	{ MODKEY|Mod1Mask,		XK_minus,  incrgaps,	   {.i = -2} },  /* decrease all gaps */
