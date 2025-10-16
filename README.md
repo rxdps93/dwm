@@ -5,6 +5,7 @@ Patches Applied
 > bulkill
 > scratchpads
 > colorbar
+> statuscmd
 
 dwm - dynamic window manager
 ============================
