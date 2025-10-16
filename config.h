@@ -1,5 +1,9 @@
 /* See LICENSE file for copyright and license details. */
 
+/* program constants */
+#define TERMINAL "st"
+#define TERMINAL_CLASS "st-256color"
+
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -27,8 +31,8 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
-const char *spcmd1[] = { "st", "-n", "spterm", "-g", "120x34", NULL };
-const char *spcmd2[] = { "st", "-n", "spcalc", "-f", "monospace:size=16", "-g", "50x20", "-e", "bc", "-lq", NULL };
+const char *spcmd1[] = { TERMINAL, "-n", "spterm", "-g", "120x34", NULL };
+const char *spcmd2[] = { TERMINAL, "-n", "spcalc", "-f", "monospace:size=14", "-g", "50x20", "-e", "bc", "-lq", NULL };
 static Sp scratchpads[] = {
 	/* name		cmd */
 	{"spterm",	spcmd1},
@@ -46,8 +50,8 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "st-256color",	      "spterm",   NULL,       SPTAG(0),     1,	         -1 },
-	{ "st-256color",       "spcalc",   NULL,       SPTAG(1),     1,           -1 },
+	{ TERMINAL_CLASS, "spterm", NULL,   SPTAG(0),     1,	         -1 },
+	{ TERMINAL_CLASS, "spcalc", NULL,   SPTAG(1),     1,           -1 },
 };
 
 /* layout(s) */
@@ -78,7 +82,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { TERMINAL, NULL };
 static const char *mutecmd[] = { "/bin/sh", "-c", "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle" };
 static const char *incvolcmd[] = { "/bin/sh", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%- && wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%+" };
 static const char *decvolcmd[] = { "/bin/sh", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%+ && wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%-" };
