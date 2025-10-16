@@ -21,10 +21,25 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
+
+/* custom default colors */
+static char norm_bg[] 		= "#2e3440"; /* #2e3440 */
+static char norm_border[] 	= "#34402e"; /* #4c566a */
+static char norm_fg[] 		= "#e29e32"; /* #d8dee9 */
+static char sel_fg[]		= "#eceff4"; /* #eceff4 */
+static char sel_border[]	= "#a3be8c"; /* #a3be8c */
+static char sel_bg[]		= "#3a2e40"; /* #b48ead */
+
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	/*                   fg         bg         border   */
+	[SchemeNorm] 	 = { norm_fg, norm_bg, norm_border },
+	[SchemeSel]	 = { sel_bg, sel_fg,  sel_border  },
+	/* colorbar patch: {   text,      bg,        unused  } */
+	[SchemeStatus]	 = { norm_fg, 	norm_bg, "#000000" },
+	[SchemeTagsSel]  = { norm_fg, 	norm_bg,  "#000000" },
+	[SchemeTagsNorm] = { sel_border, norm_bg, "#000000" },
+	[SchemeInfoSel]  = { norm_fg, 	norm_bg,  "#000000" },
+	[SchemeInfoNorm] = { norm_fg, 	norm_bg, "#000000" },
 };
 
 typedef struct {

@@ -4,6 +4,7 @@ Patches Applied
 > vanitygaps
 > bulkill
 > scratchpads
+> colorbar
 
 dwm - dynamic window manager
 ============================
