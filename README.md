@@ -1,11 +1,12 @@
 Patches Applied
 ===============
-> restartsig
-> vanitygaps
-> bulkill
-> scratchpads
-> colorbar
-> statuscmd
+> restartsig:   dwm-restartsig-20180523-6.2.diff
+> vanitygaps:   dwm-vanitygaps-20190508-6.2.diff
+> bulkill:      dwm-bulkill-20231029-9f88553.diff
+> scratchpads:  dwm-scratchpads-20200414-728d397b.diff
+> colorbar:     dwm-colorbar-6.3.diff
+> statuscmd:    dwm-statuscmd-20241009-8933ebc.diff
+> autostart:    dwm-autostart-20161205-bb3bd6f.diff
 
 dwm - dynamic window manager
 ============================
