@@ -4,3 +4,4 @@ dwm
 *.diff
 *.rej
 *.orig
+diffs/
