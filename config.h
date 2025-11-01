@@ -171,6 +171,9 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 
+	// Function keys (F1-F12)
+	{ MODKEY,			XK_F5,	xrdb,		   {.v = NULL } },
+
 	// Special keyboard keys
 	{ 0,     			XF86XK_MonBrightnessUp,	spawn, {.v = (const char *[]) { "xbacklight", "-inc", "10", NULL } } },
 	{ 0,				XF86XK_MonBrightnessDown,  spawn, {.v = (const char *[]) { "xbacklight", "-dec", "10", NULL } } },
