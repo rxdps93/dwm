@@ -7,6 +7,7 @@ Patches Applied
 > colorbar:     dwm-colorbar-6.3.diff
 > statuscmd:    dwm-statuscmd-20241009-8933ebc.diff
 > autostart:    dwm-autostart-20161205-bb3bd6f.diff
+> xresources:   dwm-xresources-20210827-138b405.diff
 
 dwm - dynamic window manager
 ============================
