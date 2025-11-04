@@ -136,7 +136,7 @@ static const Key keys[] = {
 	{ MODKEY,	                XK_q,      killclient,     {0} }, 	// close current window
 	{ MODKEY|ControlMask,		XK_q,	   killclient,	   {.ui = 1} }, // close all except current
 	{ MODKEY|ShiftMask|ControlMask, XK_q,	   killclient,	   {.ui = 2} }, // close all
-	{ MODKEY,			XK_l,	   spawn	   {.v = (const char *[]) { "lock", NULL } } }, // lock screen 
+	{ MODKEY,			XK_l,	   spawn,	   {.v = (const char *[]) { "lock", NULL } } }, // lock screen 
 
 	// SCRATCHPAD
 	{ MODKEY|ShiftMask,		XK_Return, togglescratch,  {.ui = 0} }, // sp terminal
