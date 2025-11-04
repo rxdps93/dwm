@@ -58,8 +58,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "steam",    NULL,       NULL,       1 << 8,            0,           -1 },
 	{ TERMINAL_CLASS, "spterm", NULL,   SPTAG(0),     1,	         -1 },
 	{ TERMINAL_CLASS, "spcalc", NULL,   SPTAG(1),     1,           -1 },
 };
@@ -130,13 +129,14 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY|ControlMask,           XK_i,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY|ShiftMask,             XK_h,      setmfact,       {.f = -0.05} },
+	{ MODKEY|ShiftMask,             XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_space,  zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,	                XK_q,      killclient,     {0} }, 	// close current window
 	{ MODKEY|ControlMask,		XK_q,	   killclient,	   {.ui = 1} }, // close all except current
 	{ MODKEY|ShiftMask|ControlMask, XK_q,	   killclient,	   {.ui = 2} }, // close all
+	{ MODKEY,			XK_l,	   spawn	   {.v = (const char *[]) { "lock", NULL } } }, // lock screen 
 
 	// SCRATCHPAD
 	{ MODKEY|ShiftMask,		XK_Return, togglescratch,  {.ui = 0} }, // sp terminal
