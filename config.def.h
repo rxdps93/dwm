@@ -194,6 +194,7 @@ static const Key keys[] = {
 	{ 0,				XF86XK_AudioMute, spawn,   {.v = mutecmd } },
 	{ 0,				XF86XK_AudioRaiseVolume, spawn, {.v = incvolcmd } },
 	{ 0,				XF86XK_AudioLowerVolume, spawn, {.v = decvolcmd } },
+	{ 0,				XF86XK_Calculator, togglescratch, {.ui = 1 } },
 };
 
 /* button definitions */
