@@ -8,6 +8,7 @@ Patches Applied
 > statuscmd:    dwm-statuscmd-20241009-8933ebc.diff
 > autostart:    dwm-autostart-20161205-bb3bd6f.diff
 > xresources:   dwm-xresources-20210827-138b405.diff
+> adjacenttag:  dwm-adjacenttag-6.2.diff
 
 dwm - dynamic window manager
 ============================
